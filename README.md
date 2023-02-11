@@ -20,6 +20,8 @@ The application will generate strong and random passwords based on the criteria 
 
 ## Preview
 
+![screenshot of password generator web page](/Pasword-Generator/Assets/03-javascript-homework-demo.png)
+
 ## Usage
 
 You may use this application to provide more secure passwords for your online accounts by generating random passwords for you.
