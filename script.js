@@ -33,10 +33,9 @@ let specialChar = ["!","@","#","$","%","^","&","*","(",")","=","+","[","{","]","
 function writePassword() {
   let password = createPassword();
   let passwordText = document.querySelector("#password");
-    passwordText.textContent = password;
-    console.log(password);
-    passwordText.appendChild(password);
-
+  //tried created a new element to put the new password in and it didn't work//var elementP = document.createElement("p");//elementP.textContent = password;//console.log(elementP)
+  
+  //Password value into the text box
   passwordText.value = password;
 }
 
@@ -67,54 +66,55 @@ if (!confirmUppercase && !confirmLowercase && !confirmNumber && !confirmSpecialC
   userSelection = " ";
               // All selections made
   } else if (confirmUppercase && confirmLowercase && confirmNumber && confirmSpecialChar) {
-    userSelection.concat(upperCase,lowerCase,number,specialChar);
+    userSelection.concat(getRandomUpper,getRandomLower,getRandomNumber,getRandomSpecialChar);
+
     //console.log(userSelection);
 
               // 3/4 Selections Made !upperCase
   } else if (!confirmUppercase && confirmLowercase && confirmNumber && confirmSpecialChar) {
-    userSelection.concat(lowerCase,number,specialChar);
+    userSelection.concat(getRandomLower,getRandomNumber,getRandomSpecialChar);
               // 3/4 Selections Made !lowerCase
   } else if (confirmUppercase && !confirmLowercase && confirmNumber && confirmSpecialChar) {
-    userSelection.concat(upperCase,number,specialChar);
+    userSelection.concat(getRandomUpper,getRandomNumber,getRandomSpecialChar);
               // 3/4 Selections Made !number
   } else if (confirmUppercase && confirmLowercase && !confirmNumber && confirmSpecialChar) {
-    userSelection.concat(upperCase,lowerCase,specialChar);
+    userSelection.concat(getRandomUpper,getRandomLower,getRandomSpecialChar);
               // 3/4 Selections Made !specialChar
   } else if (confirmUppercase && confirmLowercase && confirmNumber && !confirmSpecialChar) {
-    userSelection.concat(upperCase,lowerCase,number);
+    userSelection.concat(getRandomUpper,getRandomLower,getRandomNumber);
 
               // 2/4 Selections Made !upperCase !lowerCase
   } else if (!confirmUppercase && !confirmLowercase && confirmNumber && confirmSpecialChar) {
-    userSelection.concat(number,specialChar);
+    userSelection.concat(getRandomNumber,getRandomSpecialChar);
               // 2/4 Selections Made !upperCase !number
   } else if (!confirmUppercase && confirmLowercase && !confirmNumber && confirmSpecialChar) {
-    userSelection.concat(lowerCase,specialChar);
+    userSelection.concat(getRandomLower,getRandomSpecialChar);
               // 2/4 Selections Made !upperCase !specialChar
   } else if (!confirmUppercase && confirmLowercase && confirmNumber && !confirmSpecialChar) {
-    userSelection.concat(lowerCase,number);
+    userSelection.concat(getRandomLower,getRandomNumber);
               // 2/4 Selections Made !lowerCase !number
   } else if (confirmUppercase && !confirmLowercase && !confirmNumber && confirmSpecialChar) {
-    userSelection.concat(upperCase,specialChar);
+    userSelection.concat(getRandomUpper,getRandomSpecialChar);
               // 2/4 Selections Made !lowerCase !specialChar
   } else if (confirmUppercase && !confirmLowercase && confirmNumber && !confirmSpecialChar) {
-    userSelection.concat(upperCase,number);
+    userSelection.concat(getRandomUpper,getRandomNumber);
               // 2/4 Selections Made !number !specialChar
   } else if (confirmUppercase && confirmLowercase && !confirmNumber && !confirmSpecialChar) {
-    userSelection.concat(upperCase,lowerCase);
+    userSelection.concat(getRandomUpper,getRandomLower);
 
               // 1/4 Selections Made for upperCase only
   //don't need .concat here because it's only one confirm
   } else if (confirmUppercase && !confirmLowercase && !confirmNumber && !confirmSpecialChar) {
-    userSelection = upperCase;
+    userSelection = getRandomUpper;
               // 1/4 Selections Made for lowerCase only
   } else if (!confirmUppercase && confirmLowercase && !confirmNumber && !confirmSpecialChar) {
-    userSelection =  lowerCase;
+    userSelection =  getRandomLower;
               // 1/4 Selections Made for number only 
   } else if (!confirmUppercase && !confirmLowercase && confirmNumber && !confirmSpecialChar) {
-    userSelection =  number;
+    userSelection =  getRandomNumber;
               // 1/4 Selections Made for specialChar only
   } else if (!confirmUppercase && !confirmLowercase && !confirmNumber && confirmSpecialChar) {
-    userSelection =  specialChar;
+    userSelection =  getRandomSpecialChar;
   };
 
   //below are the loops and functions for the random selection of characters based on 
@@ -136,9 +136,11 @@ if (!confirmUppercase && !confirmLowercase && !confirmNumber && !confirmSpecialC
     };
 
     //for loop selecting random characters based on chosen length
-    for (i = 0; i < userLength; i++) {
-      userSelection.push(getRandomUpper(),getRandomLower(),getRandomNumber(),getRandomSpecialChar());
+    for (let i = 0; i < userLength; i++) {
+      var passwordPush = userSelection[Math.floor(Mat.random() * userSelection.length)]
+      password.push(passwordPush);
+      //didn't work, put the getRandom functions in the confirm instead.. .concat(getRandomUpper,getRandomLower,getRandomNumber,getRandomSpecialChar);
   };
 
-return 
+return password
 };
