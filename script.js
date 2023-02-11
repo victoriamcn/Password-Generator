@@ -33,6 +33,9 @@ let specialChar = ["!","@","#","$","%","^","&","*","(",")","=","+","[","{","]","
 function writePassword() {
   let password = createPassword();
   let passwordText = document.querySelector("#password");
+    passwordText.textContent = password;
+    console.log(password);
+    passwordText.appendChild(password);
 
   passwordText.value = password;
 }
@@ -137,5 +140,5 @@ if (!confirmUppercase && !confirmLowercase && !confirmNumber && !confirmSpecialC
       userSelection.push(getRandomUpper(),getRandomLower(),getRandomNumber(),getRandomSpecialChar());
   };
 
-return
+return 
 };
