@@ -62,57 +62,57 @@ function createPassword() {
 if (!confirmUppercase && !confirmLowercase && !confirmNumber && !confirmSpecialChar) {
   alert("My dude, you need to have a password. Please choose 'Okay' or 'Cancel' from the criteria.");
   userSelection = " ";
-            // All selections made
-} else if (confirmUppercase && confirmLowercase && confirmNumber && confirmSpecialChar) {
-  userSelection.concat(upperCase,lowerCase,number,specialChar);
-  //console.log(userSelection);
+              // All selections made
+  } else if (confirmUppercase && confirmLowercase && confirmNumber && confirmSpecialChar) {
+    userSelection.concat(upperCase,lowerCase,number,specialChar);
+    //console.log(userSelection);
 
-            // 3/4 Selections Made !upperCase
-} else if (!confirmUppercase && confirmLowercase && confirmNumber && confirmSpecialChar) {
-  userSelection.concat(lowerCase,number,specialChar);
-            // 3/4 Selections Made !lowerCase
-} else if (confirmUppercase && !confirmLowercase && confirmNumber && confirmSpecialChar) {
-  userSelection.concat(upperCase,number,specialChar);
-            // 3/4 Selections Made !number
-} else if (confirmUppercase && confirmLowercase && !confirmNumber && confirmSpecialChar) {
-  userSelection.concat(upperCase,lowerCase,specialChar);
-            // 3/4 Selections Made !specialChar
-} else if (confirmUppercase && confirmLowercase && confirmNumber && !confirmSpecialChar) {
-  userSelection.concat(upperCase,lowerCase,number);
+              // 3/4 Selections Made !upperCase
+  } else if (!confirmUppercase && confirmLowercase && confirmNumber && confirmSpecialChar) {
+    userSelection.concat(lowerCase,number,specialChar);
+              // 3/4 Selections Made !lowerCase
+  } else if (confirmUppercase && !confirmLowercase && confirmNumber && confirmSpecialChar) {
+    userSelection.concat(upperCase,number,specialChar);
+              // 3/4 Selections Made !number
+  } else if (confirmUppercase && confirmLowercase && !confirmNumber && confirmSpecialChar) {
+    userSelection.concat(upperCase,lowerCase,specialChar);
+              // 3/4 Selections Made !specialChar
+  } else if (confirmUppercase && confirmLowercase && confirmNumber && !confirmSpecialChar) {
+    userSelection.concat(upperCase,lowerCase,number);
 
-            // 2/4 Selections Made !upperCase !lowerCase
-} else if (!confirmUppercase && !confirmLowercase && confirmNumber && confirmSpecialChar) {
-  userSelection.concat(number,specialChar);
-            // 2/4 Selections Made !upperCase !number
-} else if (!confirmUppercase && confirmLowercase && !confirmNumber && confirmSpecialChar) {
-  userSelection.concat(lowerCase,specialChar);
-            // 2/4 Selections Made !upperCase !specialChar
-} else if (!confirmUppercase && confirmLowercase && confirmNumber && !confirmSpecialChar) {
-  userSelection.concat(lowerCase,number);
-            // 2/4 Selections Made !lowerCase !number
-} else if (confirmUppercase && !confirmLowercase && !confirmNumber && confirmSpecialChar) {
-  userSelection.concat(upperCase,specialChar);
-            // 2/4 Selections Made !lowerCase !specialChar
-} else if (confirmUppercase && !confirmLowercase && confirmNumber && !confirmSpecialChar) {
-  userSelection.concat(upperCase,number);
-            // 2/4 Selections Made !number !specialChar
-} else if (confirmUppercase && confirmLowercase && !confirmNumber && !confirmSpecialChar) {
-  userSelection.concat(upperCase,lowerCase);
+              // 2/4 Selections Made !upperCase !lowerCase
+  } else if (!confirmUppercase && !confirmLowercase && confirmNumber && confirmSpecialChar) {
+    userSelection.concat(number,specialChar);
+              // 2/4 Selections Made !upperCase !number
+  } else if (!confirmUppercase && confirmLowercase && !confirmNumber && confirmSpecialChar) {
+    userSelection.concat(lowerCase,specialChar);
+              // 2/4 Selections Made !upperCase !specialChar
+  } else if (!confirmUppercase && confirmLowercase && confirmNumber && !confirmSpecialChar) {
+    userSelection.concat(lowerCase,number);
+              // 2/4 Selections Made !lowerCase !number
+  } else if (confirmUppercase && !confirmLowercase && !confirmNumber && confirmSpecialChar) {
+    userSelection.concat(upperCase,specialChar);
+              // 2/4 Selections Made !lowerCase !specialChar
+  } else if (confirmUppercase && !confirmLowercase && confirmNumber && !confirmSpecialChar) {
+    userSelection.concat(upperCase,number);
+              // 2/4 Selections Made !number !specialChar
+  } else if (confirmUppercase && confirmLowercase && !confirmNumber && !confirmSpecialChar) {
+    userSelection.concat(upperCase,lowerCase);
 
-            // 1/4 Selections Made for upperCase only
-//don't need .concat here because it's only one confirm
-} else if (confirmUppercase && !confirmLowercase && !confirmNumber && !confirmSpecialChar) {
-  userSelection = upperCase;
-            // 1/4 Selections Made for lowerCase only
-} else if (!confirmUppercase && confirmLowercase && !confirmNumber && !confirmSpecialChar) {
-  userSelection =  lowerCase;
-            // 1/4 Selections Made for number only 
-} else if (!confirmUppercase && !confirmLowercase && confirmNumber && !confirmSpecialChar) {
-  userSelection =  number;
-            // 1/4 Selections Made for specialChar only
-} else if (!confirmUppercase && !confirmLowercase && !confirmNumber && confirmSpecialChar) {
-  userSelection =  specialChar;
-};
+              // 1/4 Selections Made for upperCase only
+  //don't need .concat here because it's only one confirm
+  } else if (confirmUppercase && !confirmLowercase && !confirmNumber && !confirmSpecialChar) {
+    userSelection = upperCase;
+              // 1/4 Selections Made for lowerCase only
+  } else if (!confirmUppercase && confirmLowercase && !confirmNumber && !confirmSpecialChar) {
+    userSelection =  lowerCase;
+              // 1/4 Selections Made for number only 
+  } else if (!confirmUppercase && !confirmLowercase && confirmNumber && !confirmSpecialChar) {
+    userSelection =  number;
+              // 1/4 Selections Made for specialChar only
+  } else if (!confirmUppercase && !confirmLowercase && !confirmNumber && confirmSpecialChar) {
+    userSelection =  specialChar;
+  };
 
   //below are the loops and functions for the random selection of characters based on 
     //functions for getting random characters for each set
@@ -135,6 +135,7 @@ if (!confirmUppercase && !confirmLowercase && !confirmNumber && !confirmSpecialC
     //for loop selecting random characters based on chosen length
     for (i = 0; i < userLength; i++) {
       userSelection.push(getRandomUpper(),getRandomLower(),getRandomNumber(),getRandomSpecialChar());
-      return;
   };
+
+return
 };
