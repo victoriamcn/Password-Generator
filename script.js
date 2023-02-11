@@ -3,33 +3,14 @@
 //Button DOM Selector
 let generateBtn = document.querySelector("#generate");
 
-//Uppercase Variable Array for userSelection
-let upperCase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
-//console.log(specialChar)
-
-//Lowercase Variable Array for userSelection
-let lowerCase = ["a", "b", "c", "d", "e", "f", "j", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
-//console.log(specialChar)
-
-//Number Variable Array for userSelection
-let number = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
-//console.log(number)
-
-//Function for Special Character Variable for userSelection
-let specialChar = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "=", "+", "[", "{", "]", "}", "<", ">", "/", "?"]
-//console.log(specialChar);
-
-// Write password to the #password input
-function writePassword() {
+// Generate button event listener for the mouse click
+generateBtn.addEventListener("click", function writePassword() {
   let password = generatePassword()
   let passwordText = document.querySelector("#password")
-  //tried created a new element to put the new password in and it didn't work//var elementP = document.createElement("p");//elementP.textContent = password;//console.log(elementP)
+
   //Password value into the text box
   passwordText.value = password;
-}
-
-// Generate button event listener for the mouse click
-generateBtn.addEventListener("click", writePassword()); //debugger
+});
 
 
 //Function to Generate PW
@@ -46,8 +27,8 @@ function generatePassword() {
   let confirmLowercase = confirm("would you like your password to have lowercase letters?")
   let confirmNumber = confirm("Would you like your password to have numbers?")
   let confirmSpecialChar = confirm("Would you like your password to contain special characters?: ! @ # $ % & * = + < > / ?")
-  let userSelection = [""] //empty array for character selection
-  let randomPassword = [""] //empty array for password generation
+  let userSelection = [] //empty array for character selection
+  let randomPassword = [] //empty array for password generation
   //console.log(randomPassword)
 
   //Character Selection // tutor advised that .concat works best here over .push
@@ -69,16 +50,22 @@ function generatePassword() {
     userSelection = userSelection.concat(specialChar)
   }
 
-  //function to randomize user's selections
-  function allRandom() {
-    return[Math.floor(Math.random() * passLength)]
-  }
+  //Uppercase
+  let upperCase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
+  //Lowercase
+  let lowerCase = ["a", "b", "c", "d", "e", "f", "j", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+  //Numbers
+  let number = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
+  //Special Characters
+  let specialChar = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "=", "+", "[", "{", "]", "}", "<", ">", "/", "?"]
+  
+  //function to randomize user's selections // function allRandom() {return[Math.floor(Math.random() * passLength)]}
 
   //for loop selecting random characters based on chosen length
   for (let i = 0; i < passLength; i++) {
     //let allSelect = userSelection[Math.floor(Math.random() * userSelection.length)];
-    let allRandom = userSelection.sort(() => .5 - Math.random()).slice(0,i)
-    randomPassword.concat(allRandom);
+    let allSelect = userSelection.sort(() => .5 - Math.random()).slice(0,i)
+    randomPassword.push(allSelect);
   }
   console.log(randomPassword)
   return randomPassword //.join("");
