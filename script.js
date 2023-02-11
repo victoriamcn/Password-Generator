@@ -4,7 +4,8 @@
 let generateBtn = document.querySelector("#generate");
 //User selection and confirm variables
 let userLength; //Variable for user's password length ~line 50
-let confirmUppercase;
+let promptLength; //made promptLength for the prompt window asking for PW length
+let confirmUppercase; //made confirm for each character set so I could list all possible selections in my conditional statements ~line66
 let confirmLowercase;
 let confirmNumber;
 let confirmSpecialChar;
@@ -12,19 +13,19 @@ let userSelection = []; //Variable to create a random password based on the user
 
 //Uppercase Variable Array for userSelection
 let upperCase = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];//FUNCTION THAT DIDN'T WORK :(= function getRandomUpper() {//return String.fromCharCode(Math.floor(Math.random() * 26) + 65)};
-  console.log(specialChar)
+  //console.log(specialChar)
 
 //Lowercase Variable Array for userSelection
 let lowerCase = ["a","b","c","d","e","f","j","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]; //FUNCTION THAT DIDN'T WORK :(= function getRandomLower() {//return String.fromCharCode(Math.floor(Math.random() * 26) + 97);};
-  console.log(specialChar)
+  //console.log(specialChar)
 
 //Number Variable Array for userSelection
-let number = [1,2,3,4,5,6,7,8,9,0]; //FUNCTION THAT DIDN'T WORK :(= function getRandomNumber() { //return String.fromCharCode(Math.floor(Math.random() * 10) + 48);};
-  console.log(number)
+let number = [1,2,3,4,5,6,7,8,9,0]; //FUNCTION THAT DIDN'T WORK :( = function getRandomNumber() { //return String.fromCharCode(Math.floor(Math.random() * 10) + 48);};
+  //console.log(number)
 
 //Function for Special Character Variable for userSelection
-let specialChar = ["!","@","#","$","%","^","&","*","(",")","=","+","[","{","]","}","<",">","/","?","'"];//FUNCTION THAT DIDN'T WORK:( function getRandomSpecialChar() {let symbols = ["!","@","#","$","%","^","&","*","(",")","=","+","[","{","]","}","<",">","/","?","'"]; return symbols[Math.floor(Math.random() * symbols.length)];};
-  console.log(specialChar);
+let specialChar = ["!","@","#","$","%","^","&","*","(",")","=","+","[","{","]","}","<",">","/","?"];//FUNCTION THAT DIDN'T WORK:( function getRandomSpecialChar() {let symbols = ["!","@","#","$","%","^","&","*","(",")","=","+","[","{","]","}","<",">","/","?","'"]; return symbols[Math.floor(Math.random() * symbols.length)];};
+  //console.log(specialChar);
 
 //Function for getting a random element from an array
 function getRandom(arr) {
@@ -41,14 +42,14 @@ function writePassword() {
   passwordText.value = password;
 }
 
-// Generate button event Listener
-generateBtn.addEventListener("click", writePassword);
+// Generate button event listener for the mouse click
+generateBtn.addEventListener("click", writePassword); //debugger
 
 
 //Function to Generate PW
 function createPassword() {
   
-  userLength = parseInt(prompt("How long would you like your password to be? Please type a number between 8 and 128."));
+  promptLength = parseInt(prompt("How long would you like your password to be? Please type a number between 8 and 128."));
   //validate entry //parseInt converts first argument to string, parses it, then returns an integer or NaN 
   if (userLength < 8 || userLength > 128) {
     Event.preventDefault();
@@ -61,48 +62,50 @@ function createPassword() {
     confirmSpecialChar = confirm("Would you like your password to contain special characters?: ! @ # $ % & * = + < > / ?");
 };
 
-// User's Character Selections
+// User's Character Selection // Found that concat works best rather than push.
     // No selections made
 if (!confirmUppercase && !confirmLowercase && !confirmNumber && !confirmSpecialChar) {
-  alert("My dude, you have to have a password, so please choose your password's characters from the criteria.");
+  alert("My dude, you need to have a password. Please choose 'Okay' or 'Cancel' from the criteria.");
   userSelection = " ";
             // All selections made
 } else if (confirmUppercase && confirmLowercase && confirmNumber && confirmSpecialChar) {
-  userSelection.push(getRandom(upperCase),lowerCase, number, specialChar);
-  console.log(userSelection);
+  userSelection.concat(upperCase,lowerCase,number,specialChar);
+  //console.log(userSelection);
+
             // 3/4 Selections Made !upperCase
 } else if (!confirmUppercase && confirmLowercase && confirmNumber && confirmSpecialChar) {
-  userSelection = lowerCase + number + specialChar;
-            // 3 of 4 Selections Made !lowerCase
+  userSelection.concat(lowerCase,number,specialChar);
+            // 3/4 Selections Made !lowerCase
 } else if (confirmUppercase && !confirmLowercase && confirmNumber && confirmSpecialChar) {
-  userSelection = upperCase + number + specialChar;
-            // 3 of 4 Selections Made !number
+  userSelection.concat(upperCase,number,specialChar);
+            // 3/4 Selections Made !number
 } else if (confirmUppercase && confirmLowercase && !confirmNumber && confirmSpecialChar) {
-  userSelection = upperCase + lowerCase + specialChar;
+  userSelection.concat(upperCase,lowerCase,specialChar);
             // 3/4 Selections Made !specialChar
 } else if (confirmUppercase && confirmLowercase && confirmNumber && !confirmSpecialChar) {
-  userSelection = upperCase + lowerCase + number;
+  userSelection.concat(upperCase,lowerCase,number);
 
             // 2/4 Selections Made !upperCase !lowerCase
 } else if (!confirmUppercase && !confirmLowercase && confirmNumber && confirmSpecialChar) {
-  userSelection = number + specialChar;
+  userSelection.concat(number,specialChar);
             // 2/4 Selections Made !upperCase !number
 } else if (!confirmUppercase && confirmLowercase && !confirmNumber && confirmSpecialChar) {
-  userSelection = lowerCase + specialChar;
+  userSelection.concat(lowerCase,specialChar);
             // 2/4 Selections Made !upperCase !specialChar
 } else if (!confirmUppercase && confirmLowercase && confirmNumber && !confirmSpecialChar) {
-  userSelection = lowerCase + number;
+  userSelection.concat(lowerCase,number);
             // 2/4 Selections Made !lowerCase !number
 } else if (confirmUppercase && !confirmLowercase && !confirmNumber && confirmSpecialChar) {
-  userSelection =  upperCase + specialChar;
+  userSelection.concat(upperCase,specialChar);
             // 2/4 Selections Made !lowerCase !specialChar
 } else if (confirmUppercase && !confirmLowercase && confirmNumber && !confirmSpecialChar) {
-  userSelection =  upperCase + number;
+  userSelection.concat(upperCase,number);
             // 2/4 Selections Made !number !specialChar
 } else if (confirmUppercase && confirmLowercase && !confirmNumber && !confirmSpecialChar) {
-  userSelection =  upperCase + lowerCase;
+  userSelection.concat(upperCase,lowerCase);
 
             // 1/4 Selections Made for upperCase only
+//don't need .concat here because it's only one confirm
 } else if (confirmUppercase && !confirmLowercase && !confirmNumber && !confirmSpecialChar) {
   userSelection = upperCase;
             // 1/4 Selections Made for lowerCase only
@@ -116,15 +119,12 @@ if (!confirmUppercase && !confirmLowercase && !confirmNumber && !confirmSpecialC
   userSelection =  specialChar;
 };
 
-//let the genPassword variable be a place holder for the PW length
-let genPassword =[];
+//below are the loops and functions for the random selection of characters
 
-//random selection of variables
-
-//for loop randomly selecting
-for (p = 0; p < userLength; p++) {
+//for loop randomly selecting characters
+for (i = 0; i < userLength; i++) {
   console.log(userLength);
-  let chooseSelect = userSelection(Math.floor(Math.random() * userSelection.length))
+  let chooseSelect = userSelection(Math.floor(Math.random() * userLength))
   genPassword = chooseSelect;
 }
 };
