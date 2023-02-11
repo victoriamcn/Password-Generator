@@ -2,29 +2,30 @@
 
 //Button DOM Selector
 let generateBtn = document.querySelector("#generate");
-//User selection Variables
-let userLength;
+//User selection and confirm variables
+let userLength; //Variable for user's password length ~line 50
 let confirmUppercase;
 let confirmLowercase;
 let confirmNumber;
 let confirmSpecialChar;
-let userSelection = [];
+let userSelection = []; //Variable to create a random password based on the userLength and confirmed characters
 
-//Uppercase Array
+//Uppercase Variable Array for userSelection
 let upperCase = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];//FUNCTION THAT DIDN'T WORK :(= function getRandomUpper() {//return String.fromCharCode(Math.floor(Math.random() * 26) + 65)};
+  console.log(specialChar)
 
-//Lowercase Array
+//Lowercase Variable Array for userSelection
 let lowerCase = ["a","b","c","d","e","f","j","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]; //FUNCTION THAT DIDN'T WORK :(= function getRandomLower() {//return String.fromCharCode(Math.floor(Math.random() * 26) + 97);};
+  console.log(specialChar)
 
-//Number Array
+//Number Variable Array for userSelection
 let number = [1,2,3,4,5,6,7,8,9,0]; //FUNCTION THAT DIDN'T WORK :(= function getRandomNumber() { //return String.fromCharCode(Math.floor(Math.random() * 10) + 48);};
+  console.log(number)
 
-//Function for Special Character
-let specialChar = function getRandomSpecialChar() {
-  let symbols = ["!","@","#","$","%","^","&","*","(",")","=","+","[","{","]","}","<",">","/","?","'"];
-  //console.log(specialChar)
-  return symbols[Math.floor(Math.random() * symbols.length)];
-};
+//Function for Special Character Variable for userSelection
+let specialChar = ["!","@","#","$","%","^","&","*","(",")","=","+","[","{","]","}","<",">","/","?","'"];//FUNCTION THAT DIDN'T WORK:( function getRandomSpecialChar() {let symbols = ["!","@","#","$","%","^","&","*","(",")","=","+","[","{","]","}","<",">","/","?","'"]; return symbols[Math.floor(Math.random() * symbols.length)];};
+  console.log(specialChar);
+
 //Function for getting a random element from an array
 function getRandom(arr) {
   var randIndex = Math.floor(Math.random() * arr.length);
@@ -47,7 +48,7 @@ generateBtn.addEventListener("click", writePassword);
 //Function to Generate PW
 function createPassword() {
   
-  enter = parseInt(prompt("How long would you like your password to be? Please type a number between 8 and 128."));
+  userLength = parseInt(prompt("How long would you like your password to be? Please type a number between 8 and 128."));
   //validate entry //parseInt converts first argument to string, parses it, then returns an integer or NaN 
   if (userLength < 8 || userLength > 128) {
     Event.preventDefault();
