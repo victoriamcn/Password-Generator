@@ -8,25 +8,32 @@ let confirmUppercase;
 let confirmLowercase;
 let confirmNumber;
 let confirmSpecialChar;
-let userSelection;
+let userSelection = [ ];
 //Function for Lowercase
-let lowerCase = function getRandromLower() {
-  return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
+let lowerCase = function getRandomLower() {
+  console.log(lowerCase)
+  //return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
 };
 //Function for Uppercase
 let upperCase = function getRandomUpper() {
-  return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
+  //return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
 };
 //Function for Number
 let number = function getRandomNumber() {
-  return String.fromCharCode(Math.floor(Math.random() * 10) + 48);
+  //return String.fromCharCode(Math.floor(Math.random() * 10) + 48);
 };
 //Function for Special Character
 let specialChar = function getRandomSpecialCharacter() {
   let symbols = '!@#$%^&*()=+[{]}<>/?';
   return symbols[Math.floor(Math.random() * symbols.length)];
 };
+//Function for getting a random element from an array
+function getRandom(arr) {
+  var randIndex = Math.floor(Math.random() * arr.length);
+  var randElement = arr[randIndex];
 
+  return randElement;
+}
 // Write password to the #password input
 function writePassword() {
   let password = createPassword();
@@ -62,8 +69,8 @@ if (!confirmUppercase && !confirmLowercase && !confirmNumber && !confirmSpecialC
   userSelection = " ";
             // All selections made
 } else if (confirmUppercase && confirmLowercase && confirmNumber && confirmSpecialChar) {
-  userSelection = upperCase + lowerCase + number + specialChar;
-
+  userSelection.push(getRandom(upperCase),lowerCase, number, specialChar);
+  console.log(userSelection);
             // 3/4 Selections Made !upperCase
 } else if (!confirmUppercase && confirmLowercase && confirmNumber && confirmSpecialChar) {
   userSelection = lowerCase + number + specialChar;
@@ -117,6 +124,7 @@ let genPassword =[];
 
 //for loop randomly selecting
 for (p = 0; p < userLength; p++) {
+  console.log(userLength);
   let chooseSelect = userSelection(Math.floor(Math.random() * userSelection.length))
   genPassword = chooseSelect;
 }

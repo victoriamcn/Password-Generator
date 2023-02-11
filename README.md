@@ -1,18 +1,18 @@
-# Pasword-Generator
+# Password-Generator
 
 ## Description
-The purpose of this application is to ensure greater security for the client, their employees and the busness data.
+The purpose of this application is to ensure greater security for the client, their employees and the business data.
 
-The application will create generate strong and random passwords based on the critera that they've selected. It runs in the browser and have a clean and polished, responsive user interface taht adapts to multiple screen sizes.
+The application will create generate strong and random passwords based on the criteria that they've selected. It runs in the browser and have a clean and polished, responsive user interface that adapts to multiple screen sizes.
 
 ## Table of Contents
-- [Installation](#installation)
+- [Preview](#preview)
 - [Usage](#usage)
 - [License](#license)
 - [Credits](#credits)
 - [Tests](#tests)
 
-## Installation
+## Preview
 
 ## Usage
 
@@ -22,6 +22,11 @@ The application will create generate strong and random passwords based on the cr
 
 ## Credits
 
-[list of password special characters](https://www.owasp.org/index.php/Password_special_characters)
+**Tutorial**
+- [Traversy Media: JavaScript Password Generator](https://www.youtube.com/watch?v=duNmhKgtcsI)
+
+**References**
+- [Charset Reference Document](http:www.net-comber.com/charset.html)
+
 
 ## Tests
