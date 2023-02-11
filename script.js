@@ -12,28 +12,23 @@ let confirmSpecialChar;
 let userSelection = []; //Variable to create a random password based on the userLength and confirmed characters
 
 //Uppercase Variable Array for userSelection
-let upperCase = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];//FUNCTION THAT DIDN'T WORK :(= function getRandomUpper() {//return String.fromCharCode(Math.floor(Math.random() * 26) + 65)};
+let upperCase = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
   //console.log(specialChar)
 
 //Lowercase Variable Array for userSelection
-let lowerCase = ["a","b","c","d","e","f","j","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]; //FUNCTION THAT DIDN'T WORK :(= function getRandomLower() {//return String.fromCharCode(Math.floor(Math.random() * 26) + 97);};
+let lowerCase = ["a","b","c","d","e","f","j","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
   //console.log(specialChar)
 
 //Number Variable Array for userSelection
-let number = [1,2,3,4,5,6,7,8,9,0]; //FUNCTION THAT DIDN'T WORK :( = function getRandomNumber() { //return String.fromCharCode(Math.floor(Math.random() * 10) + 48);};
+let number = [1,2,3,4,5,6,7,8,9,0];
   //console.log(number)
 
 //Function for Special Character Variable for userSelection
-let specialChar = ["!","@","#","$","%","^","&","*","(",")","=","+","[","{","]","}","<",">","/","?"];//FUNCTION THAT DIDN'T WORK:( function getRandomSpecialChar() {let symbols = ["!","@","#","$","%","^","&","*","(",")","=","+","[","{","]","}","<",">","/","?","'"]; return symbols[Math.floor(Math.random() * symbols.length)];};
+let specialChar = ["!","@","#","$","%","^","&","*","(",")","=","+","[","{","]","}","<",">","/","?"];
   //console.log(specialChar);
 
-//Function for getting a random element from an array
-function getRandom(arr) {
-  var randIndex = Math.floor(Math.random() * arr.length);
-  var randElement = arr[randIndex];
+//Function for getting a random element from an array//function getRandom(uppercase) {// var randUpperCase = Math.floor(Math.random() * upperCase.length);//var randElement = arr[randUpperCase];return randElement;}
 
-  return randElement;
-}
 // Write password to the #password input
 function writePassword() {
   let password = createPassword();
@@ -119,12 +114,27 @@ if (!confirmUppercase && !confirmLowercase && !confirmNumber && !confirmSpecialC
   userSelection =  specialChar;
 };
 
-//below are the loops and functions for the random selection of characters
+  //below are the loops and functions for the random selection of characters based on 
+    //functions for getting random characters for each set
+    function getRandomUpper() {
+      Math.floor(Math.random() * upperCase.length);
+    };
 
-//for loop randomly selecting characters
-for (i = 0; i < userLength; i++) {
-  console.log(userLength);
-  let chooseSelect = userSelection(Math.floor(Math.random() * userLength))
-  genPassword = chooseSelect;
-}
+    function getRandomLower() {  
+      Math.floor(Math.random() * lowerArr.length);
+    };
+
+    function getRandomNumber() {
+      Math.floor(Math.random() * number.length);
+    };
+
+    function getRandomSpecialChar() {
+      Math.floor(Math.random() * specialChar.length);
+    };
+
+    //for loop selecting random characters based on chosen length
+    for (i = 0; i < userLength; i++) {
+      userSelection.push(getRandomUpper(),getRandomLower(),getRandomNumber(),getRandomSpecialChar());
+      return;
+  };
 };
