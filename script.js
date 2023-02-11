@@ -16,11 +16,21 @@ generateBtn.addEventListener("click", function writePassword() {
 //Function to Generate PW
 function generatePassword() {
 
-    let passLength = prompt("How long would you like your password to be? Please type a number between 8 and 128.")
-    while ((passLength < 8) || (passLength > 128) || (isNaN(passLength)=== true)) {
-      alert("Please type a number between 8 and 128.")
-      passLength = prompt("Please type a number between 8 and 128.")
-    }
+  let passLength = prompt("How long would you like your password to be? Please type a number between 8 and 128.")
+  while ((passLength < 8) || (passLength > 128) || (isNaN(passLength)=== true)) {
+    alert("Please type a number between 8 and 128.")
+    passLength = prompt("Please type a number between 8 and 128.")
+  }
+
+  //Characters for Character Selection
+  //Uppercase
+  let upperCase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
+  //Lowercase
+  let lowerCase = ["a", "b", "c", "d", "e", "f", "j", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+  //Numbers
+  let number = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
+  //Special Characters
+  let specialChar = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "=", "+", "[", "{", "]", "}", "<", ">", "/", "?"]
 
   //variables for confirming characters
   let confirmUppercase = confirm("Would you like your password to have UPPERCASE letters?")
@@ -32,7 +42,6 @@ function generatePassword() {
   //console.log(randomPassword)
 
   //Character Selection // tutor advised that .concat works best here over .push
-
   //upperCase
   if  (confirmUppercase === true) {
     userSelection = userSelection.concat(upperCase)
@@ -49,26 +58,17 @@ function generatePassword() {
   if (confirmSpecialChar === true) {
     userSelection = userSelection.concat(specialChar)
   }
-
-  //Uppercase
-  let upperCase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
-  //Lowercase
-  let lowerCase = ["a", "b", "c", "d", "e", "f", "j", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
-  //Numbers
-  let number = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
-  //Special Characters
-  let specialChar = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "=", "+", "[", "{", "]", "}", "<", ">", "/", "?"]
   
   //function to randomize user's selections // function allRandom() {return[Math.floor(Math.random() * passLength)]}
 
   //for loop selecting random characters based on chosen length
   for (let i = 0; i < passLength; i++) {
-    //let allSelect = userSelection[Math.floor(Math.random() * userSelection.length)];
-    let allSelect = userSelection.sort(() => .5 - Math.random()).slice(0,i)
+    let allSelect = userSelection[Math.floor(Math.random() * userSelection.length)];
+    //let allSelect = userSelection.sort(() => .5 - Math.random()).slice //(0,i)
     randomPassword.push(allSelect);
   }
   console.log(randomPassword)
-  return randomPassword //.join("");
+  return randomPassword; //.join("");
   }
 
 //Below complicated code I worked on for several days before my classmates helped me make it simple
