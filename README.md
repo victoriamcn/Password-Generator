@@ -4,10 +4,10 @@
 The purpose of this application is to ensure greater security for the client, their employees and the business data.
 
 The password must be between 8 and 128 characters long and must contain one or more of the following characters:
-- Uppercase Letters: ABCDEFGHIJKLMNOPQRSTUVWXYZ
-- Lowercase Letters: abcdefghijklmnopqrstuvwxyz
-- Numbers: 0123456789
-- Special Characters: !@#$%^&*()+=[]{}<>/?!
+- **Uppercase Letters:** ABCDEFGHIJKLMNOPQRSTUVWXYZ
+- **Lowercase Letters:** abcdefghijklmnopqrstuvwxyz
+- **Numbers:** 0123456789
+- **Special Characters:** !@#$%^&*()+=[]{}<>/?!
 
 The application will generate strong and random passwords based on the criteria that the user has selected. It runs in the browser and have a clean and polished, responsive user interface that adapts to multiple screen sizes.
 
@@ -20,7 +20,7 @@ The application will generate strong and random passwords based on the criteria 
 
 ## Preview
 
-![screenshot of password generator web page](/Pasword-Generator/Assets/03-javascript-homework-demo.png)
+![screenshot of password generator web page](Pasword-Generator/Assets/03-javascript-homework-demo.png)
 
 ## Usage
 
