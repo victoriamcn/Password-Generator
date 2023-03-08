@@ -13,14 +13,18 @@ The application will generate strong and random passwords based on the criteria 
 
 ## Table of Contents
 - [Preview](#preview)
+- [Deployed Application](https://victoriamcn.github.io/Password-Generator/)
 - [Usage](#usage)
 - [License](#license)
 - [Credits](#credits)
-- [Tests](#tests)
 
 ## Preview
 
 ![screenshot of password generator web page](Pasword-Generator/Assets/03-javascript-homework-demo.png)
+
+## Deployed Application
+
+[https://victoriamcn.github.io/Password-Generator/](https://victoriamcn.github.io/Password-Generator/)
 
 ## Usage
 
