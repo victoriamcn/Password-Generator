@@ -20,7 +20,7 @@ The application will generate strong and random passwords based on the criteria 
 
 ## Preview
 
-![screenshot of password generator web page](Pasword-Generator/Assets/03-javascript-homework-demo.png)
+![screenshot of password generator web page](./Assets/03-javascript-homework-demo.png)
 
 ## Deployed Application
 
