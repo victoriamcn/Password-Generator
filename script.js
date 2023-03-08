@@ -68,7 +68,7 @@ function generatePassword() {
     randomPassword.push(allSelect);
   }
   console.log(randomPassword)
-  return randomPassword; //.join("");
+  return randomPassword.join("");
   }
 
 //Below complicated code I worked on for several days before my classmates helped me make it simple
