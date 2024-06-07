@@ -1,4 +1,4 @@
-# ARCHIVED
+# No Longer Updated
 
 This was one of the first Javascript project and is no longer being updated. I do not recommend using this for creating passwords as the deployed app is not secure, and creates a gibberish text string that no human could remember.
 
